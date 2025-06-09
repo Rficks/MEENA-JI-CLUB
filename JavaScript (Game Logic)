@@ -1,0 +1,27 @@
+// script.js
+let selectedColor = null;
+
+function placeBet(color) {
+  selectedColor = color;
+  document.getElementById('outcome').innerHTML = `<p>You bet on ${color}</p>`;
+}
+
+function spinWheel() {
+  const colors = ['#ff5733', '#33ff57', '#5733ff'];
+  const randomColor = colors[Math.floor(Math.random() * colors.length)];
+
+  const outcomeBox = document.getElementById('outcome');
+  outcomeBox.style.backgroundColor = randomColor;
+  outcomeBox.innerHTML = `<p>The wheel landed on ${randomColor}</p>`;
+
+  if (selectedColor === randomColor) {
+    outcomeBox.innerHTML += `<p>Congrats! You won!</p>`;
+  } else {
+    outcomeBox.innerHTML += `<p>Sorry! You lost. Try again!</p>`;
+  }
+}
+
+// Placeholder for payment gateway logic
+function paymentGateway() {
+  alert("This is a placeholder for a payment gateway (like UPI/PhonePe). Implement this with real API integration.");
+}
